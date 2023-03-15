@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import axios from "axios";
-import {BACKEND_URL} from './../../../config'
+import {BASE_URL} from './../../../config'
 type FormValues = {
   usernameoremail: string;
   password: string;
@@ -13,6 +14,7 @@ type Props = {
 const Login: React.FC<Props> = () => {
   const [usernameoremail, setUsernameoremail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter()
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -26,15 +28,16 @@ const Login: React.FC<Props> = () => {
     formData.append('username',usernameoremail)
     formData.append('password',password)
 
-
     axios({
       method: "post",
-      url: BACKEND_URL+"/oauth/token",
+      url: BASE_URL+"/oauth/token",
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     })
 .then((response) => {
-  console.log(response.data);
+localStorage.setItem('access',response.data.access_token)
+localStorage.setItem('refresh',response.data.refresh_token)
+  router.push('/vender')
 })
 .catch((error) => {
   console.error(error);

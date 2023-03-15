@@ -1,17 +1,31 @@
 import BookingPopup from "@/features/BookingPopup/BookingPopup";
 import { useState } from "react";
-
+import axios from "axios";
+import {BASE_URL} from './../../config'
 const Vender = () => {
     const [isColor, setIsColor] = useState(1);
     const [modal, setModal] = useState(false)
     const [vendor, setVendor] = useState([])
-    
-
+    const [bookings, setBookings] = useState([])
+let session
+    if (typeof window !== 'undefined') {
+       session= localStorage.getItem('access')      }
     const handleChange = (id: any) => {
         setIsColor(id);
 
     }
-
+    axios({
+        method: "get",
+        url: BASE_URL+"/api/booking",
+            headers: { "Content-Type": "multipart/form-data","Authorization":`Bearer ${session}`},
+    })
+  .then((response) => {
+   setBookings(response.data);
+   
+  })
+  .catch((error) => {
+    console.error(error);
+  });
     const handleClick = () => {
         setModal(!modal)
     }
@@ -46,13 +60,14 @@ const Vender = () => {
                         </tr>
                     </thead>
                     <tbody>
+                       {bookings.map((item:any,index:any)=>(
                         <tr>
-                            <td className="p-3 border-2">Row 1, Column 1</td>
-                            <td className="p-3 border-2">Row 1, Column 2</td>
-                            <td className="p-3 border-2">Row 1, Column 3</td>
-                            <td className="p-3 border-2">Row 1, Column 4</td>
-                            <td className="p-3 border-2">Row 1, Column 5</td>
-                        </tr>
+                            <td className="p-3 border-2">{item.vendor.name}</td>
+                            <td className="p-3 border-2">{item.start_time}</td>
+                            <td className="p-3 border-2">{item.end_time}</td>
+                            <td className="p-3 border-2">{item.service.name}</td>
+                            <td className="p-3 border-2">{item.date}</td>
+                        </tr>))}
 
                         
                     </tbody>

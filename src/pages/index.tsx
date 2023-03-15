@@ -7,14 +7,16 @@ import ServiceTable from '@/features/ServiceTable/ServiceTable'
 import IndexPage from '@/components/Home'
 
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+ 
   return (
     <>
-      <Vender />
+      {/* <Vender /> */}
       
-      {/* <IndexPage /> */}
+      <IndexPage />
     </>
   )
 }

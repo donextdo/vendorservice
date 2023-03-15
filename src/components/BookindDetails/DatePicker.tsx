@@ -3,15 +3,16 @@ import React, { FC, useState } from "react";
 interface DatePickerProps {
   name: String;
   className: any;
+  setSelectedDate : any;
 }
 
 const DatePicker: FC<DatePickerProps> = (props) => {
-  const [selectedDate, setSelectedDate] = useState('');
+  // const [selectedDate, setSelectedDate] = useState('');
 
   function handleDateChange(event :any) {
     let date = event.target.value;
     console.log(date);
-    setSelectedDate(date)
+    props.setSelectedDate(date)
   }
   return (
     <div className={props.className}>
