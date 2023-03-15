@@ -28,7 +28,6 @@ const Login: React.FC<Props> = () => {
     formData.append('username',usernameoremail)
     formData.append('password',password)
 
-    
     axios({
       method: "post",
       url: BASE_URL+"/oauth/token",
@@ -36,7 +35,6 @@ const Login: React.FC<Props> = () => {
       headers: { "Content-Type": "multipart/form-data" },
     })
 .then((response) => {
-  console.log(response.data.access_token);
 localStorage.setItem('access',response.data.access_token)
 localStorage.setItem('refresh',response.data.refresh_token)
   router.push('/vender')
