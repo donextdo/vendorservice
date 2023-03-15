@@ -6,6 +6,7 @@ const IndexPage = () => {
   const [activeTab, setActiveTab] = useState("tab1");
 
   const handleTabClick = (tab: SetStateAction<string>) => {
+
     setActiveTab(tab);
   };
 
