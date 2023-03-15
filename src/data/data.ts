@@ -1,18 +1,16 @@
 // Number of Square fect
 export const data = [
-  { id: 1, option: "Select your fect", disabled: true, selected: true },
-  { id: 2, option: "500-1000", disabled: false },
-  { id: 3, option: "1000-2000", disabled: false },
-  { id: 4, option: "2000-3000", disabled: false },
-  { id: 5, option: "3000-4000", disabled: false },
-  { id: 6, option: "4000-5000", disabled: false },
+  { id: 1, value: "", option: "Select your feet", disabled: true },
+  { id: 2, value: "500-1000", option: "500-1000", disabled: false },
+  { id: 3, value: "1000-2000", option: "1000-2000", disabled: false },
+  { id: 4, value: "2000-3000", option: "2000-3000", disabled: false },
+  { id: 5, value: "3000-4000", option: "3000-4000", disabled: false },
+  { id: 6, value: "4000-5000", option: "4000-5000", disabled: false },
 ];
 
 export const services = [
-  { id: 1, service: "Select your service"},
-  { id: 2, service: "services1"},
-  { id: 3, service: "services2"},
-  { id: 4, service: "services3"},
-  { id: 5, service: "services4"},
-  { id: 6, service: "services5"},
+  { value: "services 1", label: "services  1" },
+  { value: "services 2", label: "services  2" },
+  { value: "services 3", label: "services  3" },
+  { value: "services 4", label: "services  4" },
 ];

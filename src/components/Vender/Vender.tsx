@@ -20,12 +20,7 @@ const Vender = () => {
             <div className=' flex space-x-8 justify-center text-gray-400'>
                 <button className={`px-4 py-3 border-b-2  ${isColor === 1 ? 'border-blue-500' : 'border-white'}`}
                     onClick={() => handleChange(1)}>VENDOR</button>
-                <button className={`px-4 py-3 border-b-2  ${isColor === 2 ? 'border-blue-500' : 'border-white'}`}
-                    onClick={() => handleChange(2)}>ORDERS</button>
-                <button className={`px-4 py-3 border-b-2  ${isColor === 3 ? 'border-blue-500' : 'border-white'}`}
-                    onClick={() => handleChange(3)}>ACCOUNT DETAILS</button>
-                <button className={`px-4 py-3 border-b-2  ${isColor === 4 ? 'border-blue-500' : 'border-white'}`}
-                    onClick={() => handleChange(4)}>ADDRESSES</button>
+                
             </div>
             <hr />
 
