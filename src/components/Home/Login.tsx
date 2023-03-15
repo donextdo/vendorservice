@@ -1,4 +1,6 @@
+import { useRouter } from "next/router";
 import React, { useState } from "react";
+
 
 type FormValues = {
   usernameoremail: string;
@@ -12,12 +14,13 @@ type Props = {
 const Login: React.FC<Props> = () => {
   const [usernameoremail, setUsernameoremail] = useState("");
   const [password, setPassword] = useState("");
-
+  const router = useRouter()
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log({ usernameoremail, password });
     setUsernameoremail("");
     setPassword("");
+    router.push('/vender');
   };
   return (
     <>
@@ -59,7 +62,7 @@ const Login: React.FC<Props> = () => {
 
           <div className="mt-5 pl-3 flex ">
             <input type="checkbox" className="bg-[#f3f4f7]" />
-            <p className="px-3">Remember me</p>
+            {/* <p className="px-3">Remember me</p> */}
           </div>
 
           <div className="mx-2 mt-5 mb-10 ">

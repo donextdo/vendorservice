@@ -37,7 +37,7 @@ const IndexPage = () => {
       </div>
       <div className="tab-content">
         {activeTab === "tab1" && (
-          <p>
+          <div>
             <Login
               onSubmit={function (values: {
                 usernameoremail: string;
@@ -46,10 +46,10 @@ const IndexPage = () => {
                 throw new Error("Function not implemented.");
               }}
             />
-          </p>
+          </div>
         )}
         {activeTab === "tab2" && (
-          <p>
+          <div>
             <Register
               onSubmit={function (values: {
                 email: string;
@@ -58,7 +58,7 @@ const IndexPage = () => {
                 throw new Error("Function not implemented.");
               }}
             />
-          </p>
+          </div>
         )}
       </div>
     </div>

@@ -6,12 +6,20 @@ import ServiceTable from "../ServiceTable/ServiceTable";
 import { GrFormClose } from "react-icons/gr";
 import { useState } from "react";
 
-const BookingPopup = ({ setModal }: any) => {
+const BookingPopup = ({ setModal, setVendor, vendor }: any) => {
     const [selectedOptions, setSelectedOptions] = useState<any>([]);
+  const [selectedDate, setSelectedDate] = useState('');
+
 
     const handleClose = () => {
         setModal(false);
     };
+
+    const venderObject = {
+        date : selectedDate,
+    }
+
+    // setVendor([...venderObject,vendor])
     return (
         <div className="fixed inset-0 z-50 grid place-items-center bg-slate-900 bg-opacity-10 ">
             <div className="py-6 px-4 flex gap-6 flex-col bg-white shadow-md rounded-md w-8/12 overflow-y-auto h-5/6">
@@ -40,11 +48,12 @@ const BookingPopup = ({ setModal }: any) => {
                         setSelectedOptions={setSelectedOptions}
                     />
 
-                    <DatePicker name="Date" className={"mb-5"} />
+                    <DatePicker name="Date" className={"mb-5"} setSelectedDate={setSelectedDate}/>
 
                     <ServiceTable
                         selectedOptions={selectedOptions}
                         setSelectedOptions={setSelectedOptions}
+                        isDate={selectedDate ? true : false}
                     />
                 </div>
             </div>
