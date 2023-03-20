@@ -28,10 +28,11 @@ const BookingPopup = ({ setModal, setVendor, vendor }: any) => {
     setAddress(event.target.value);
   };
 
+
     const handleClose = () => {
         setModal(false);
     };
-    const addBook = () => {
+    const addBook = async() => {
         const venderObject = {
             square_feet_id:selectValue,
             date : selectedDate,
@@ -39,14 +40,14 @@ const BookingPopup = ({ setModal, setVendor, vendor }: any) => {
             address:address
         }
         console.log(venderObject)
-        axios({
+      await  axios({
             method: "post",
             url: BASE_URL+"/api/booking",
             data: venderObject,
             headers: { "Content-Type": "multipart/form-data","Authorization":`Bearer ${localStorage.getItem('access')}`},
           })
       .then((response) => {
-     console.log(response)
+    //  console.log(response)
       })
       .catch((error) => {
         console.error(error);
@@ -89,7 +90,7 @@ const BookingPopup = ({ setModal, setVendor, vendor }: any) => {
                 <div className="mx-auto w-10/12 bg-slate-100 p-10 rounded-md">
                     <DropDown
                         name="Number Of Square Feet"
-                        data={data}
+                        data={squareFeet}
                         className={"mb-5"}
                         setSelectValue ={setSelectValue}
                         selectValue={selectValue}

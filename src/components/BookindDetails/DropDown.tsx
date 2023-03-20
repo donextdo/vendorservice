@@ -26,8 +26,8 @@ const DropDown: FC<DropDownProps> = (props) => {
         value={props.selectValue}
       >
         {props.data.map((item: any, index: any) => (
-          <option key={index} value={item.value} disabled={item.disabled}>
-            {item.option}
+          <option key={index} value={item.range} disabled={item.disabled}>
+            {item.range}
           </option>
         ))}
       </select>

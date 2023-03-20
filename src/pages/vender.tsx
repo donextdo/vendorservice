@@ -68,7 +68,7 @@ const Vender = () => {
                     </thead>
                     <tbody>
                        {bookings.map((item:any,index:any)=>(
-                        <tr>
+                        <tr key={index} >
                             <td className="p-3 border-2">{item.client.name}</td>
                             <td className="p-3 border-2">{item.square_feet.range}</td>
                             <td className="p-3 border-2">{item.vendor.name}</td>

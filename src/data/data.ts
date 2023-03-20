@@ -14,3 +14,83 @@ export const services = [
   { value: "services 3", label: "services  3" },
   { value: "services 4", label: "services  4" },
 ];
+export const timeSlotsData = [
+  {
+    id: 1,
+    value: "8:00",
+    vendors: [
+      {
+        id: 1,
+        name: "Amal",
+        is_available: true,
+        service: [
+          {
+            id: 1,
+            name: "Landscaping"
+          }
+        ]
+      },
+      {
+        id: 2,
+        name: "Sunil",
+        is_available: false,
+        service: [
+          {
+            id: 2,
+            name: "service 2"
+          }
+        ]
+      },
+      {
+        id: 3,
+        name: "kamal",
+        is_available: true,
+        service: [
+          {
+            id: 1,
+            name: "Landscaping"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 2,
+    value: "8:30",
+    vendors: [
+      {
+        id: 1,
+        name: "Amal",
+        is_available: true,
+        service: [
+          {
+            id: 1,
+            name: "Landscaping"
+          }
+        ]
+      },
+      {
+        id: 2,
+        name: "Sunil",
+        is_available: true,
+        service: [
+          {
+            id: 2,
+            name: "service 2"
+          }
+        ]
+      },
+      {
+        id: 3,
+        name: "kamal",
+        is_available: false,
+        service: [
+          {
+            id: 1,
+            name: "Landscaping"
+          }
+        ]
+      }
+    ]
+  }
+];

@@ -16,7 +16,7 @@ const Login: React.FC<Props> = () => {
   const [password, setPassword] = useState("");
   const router = useRouter()
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log({ usernameoremail, password });
     setUsernameoremail("");
@@ -28,7 +28,7 @@ const Login: React.FC<Props> = () => {
     formData.append('username',usernameoremail)
     formData.append('password',password)
 
-    axios({
+   await axios({
       method: "post",
       url: BASE_URL+"/oauth/token",
       data: formData,
