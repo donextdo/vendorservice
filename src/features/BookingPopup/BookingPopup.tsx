@@ -34,7 +34,7 @@ const BookingPopup = ({ setModal, setVendor, vendor }: any) => {
     };
     const addBook = async() => {
         const venderObject = {
-            square_feet_id:selectValue,
+            square_feet_id:parseInt(selectValue),
             date : selectedDate,
             Service_data:selectedServices,
             address:address
@@ -47,7 +47,7 @@ const BookingPopup = ({ setModal, setVendor, vendor }: any) => {
             headers: { "Content-Type": "multipart/form-data","Authorization":`Bearer ${localStorage.getItem('access')}`},
           })
       .then((response) => {
-    //  console.log(response)
+     console.log(response)
       })
       .catch((error) => {
         console.error(error);
@@ -117,7 +117,7 @@ const BookingPopup = ({ setModal, setVendor, vendor }: any) => {
                         setSelectedServices={setSelectedServices}
                         selectedServices={selectedServices}
                     />
-                                <button className="border border-blue-500 py-2 px-4 bg-blue-500 text-white rounded-md" onClick={addBook}>Add booking</button>
+                                <button className="border my-2 border-blue-500 py-2 px-4 bg-blue-500 text-white rounded-md" onClick={addBook}>Add booking</button>
 
                 </div>
             </div>

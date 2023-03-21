@@ -24,7 +24,7 @@ const Login: React.FC<Props> = () => {
     var formData= new FormData()
     formData.append('grant_type','password')
     formData.append('client_id','2')
-    formData.append('client_secret','sb0wVPPJGaotSBNiM4WlP0fh73HdYiiI9eNeBug3')
+    formData.append('client_secret','9tKdMRcirUNLOYYHIvXI68H7ZDqqA4b4gcOV5hV3')
     formData.append('username',usernameoremail)
     formData.append('password',password)
 

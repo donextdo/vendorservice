@@ -9,10 +9,10 @@ export const data = [
 ];
 
 export const services = [
-  { value: "services 1", label: "services  1" },
-  { value: "services 2", label: "services  2" },
-  { value: "services 3", label: "services  3" },
-  { value: "services 4", label: "services  4" },
+  { value: 1, label: "services  1" },
+  { value: 2, label: "services  2" },
+  { value: 3, label: "services  3" },
+  { value: 4, label: "services  4" },
 ];
 export const timeSlotsData = [
   {

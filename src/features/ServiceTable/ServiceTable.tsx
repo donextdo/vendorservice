@@ -35,9 +35,9 @@ const ServiceTable = ({ selectedServices,setSelectedServices,selectedOptions, is
       console.log(time)
       setSelectedTime(time)
       let services={
-       service_id:id,   
+       service_id:parseInt(id),   
        start_time:time,
-       vender_id:vendor   
+       vendor_id:vendor   
       }
       console.log(services)
       setSelectedServices((selectedServices: any)=>[...selectedServices.filter((option:any)=>option.service_id!=services.service_id),services])
@@ -45,8 +45,11 @@ const ServiceTable = ({ selectedServices,setSelectedServices,selectedOptions, is
     };
   
     return (
-    isDate  && selectedOptions.map((option: any) => (
-      <table key={option.value} className="table">
+        <div className="mt-6 grid grid-cols-2 gap-4">
+   { isDate  && selectedOptions.map((option: any) => (
+   <div key={option.value}> 
+     <h2 className="mx-5">{option.label}</h2>
+      <table  className="table">
         <thead>
           <tr>
             <th>Time</th>
@@ -56,9 +59,10 @@ const ServiceTable = ({ selectedServices,setSelectedServices,selectedOptions, is
         <tbody data-id={option.value}>
         {timeSlotsData.map((timeSlot) => (
           <tr key={timeSlot.id}>
-            <td  className="time">{timeSlot.value}</td>
-            <td data-time={timeSlot.value} className="vendors">
+            <td className="border-2 px-4 py-2 time">{timeSlot.value}</td>
+            <td  data-time={timeSlot.value}  className="vendors border-2 px-4 py-2 ">
               {timeSlot.vendors.map((vendor) => (
+                
                 <div key={vendor.id} className="vendor">
                   <input
                     data-time={timeSlot.value}
@@ -68,7 +72,7 @@ const ServiceTable = ({ selectedServices,setSelectedServices,selectedOptions, is
                     value={vendor.id}
                     // checked={selectedVendor === vendor.id}
                     onChange={ handleVendorSelect}
-                   // disabled={!vendor.is_available || (selectedVendor !== null && selectedVendor !== vendor.id)}
+                   disabled={!vendor.is_available }
                     // disable same names in other rows
                   />
                   <label htmlFor={`vendor-${vendor.id}`}>{vendor.name}</label>
@@ -78,7 +82,10 @@ const ServiceTable = ({ selectedServices,setSelectedServices,selectedOptions, is
           </tr>
         ))}
       </tbody>
-      </table>))
+      </table>
+     </div> 
+    ))}
+   </div>
     );
   };
   
